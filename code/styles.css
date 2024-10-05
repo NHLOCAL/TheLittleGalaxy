@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #000428, #004e92);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+#canvas {
+    display: block;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+#dialogueBox {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px;
+    display: none;
+    z-index: 20;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+#characterName {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#dialogueText {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#nextButton {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#nextButton:hover {
+    background: #FFC107;
+}
+
+#miniMap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#miniMapCanvas {
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.5);
+}

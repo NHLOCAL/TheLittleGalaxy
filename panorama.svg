@@ -1,0 +1,509 @@
+<svg width="6000" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- רקע -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000428" />
+      <stop offset="100%" stop-color="#004e92" />
+    </linearGradient>
+  </defs>
+  <rect width="6000" height="1000" fill="url(#skyGradient)" />
+
+  <!-- סגנונות כלליים -->
+  <style>
+    .title {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 36px;
+      fill: #f0e68c;
+      text-anchor: middle;
+      direction: rtl;
+    }
+    .description {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 24px;
+      fill: #add8e6;
+      text-anchor: middle;
+      direction: rtl;
+    }
+    .star {
+      fill: gold;
+      stroke: #f0e68c;
+      stroke-width: 1;
+    }
+    .small-star {
+      fill: #ffd700;
+      stroke: #ffa500;
+      stroke-width: 0.5;
+    }
+  </style>
+
+  <!-- שמיים מלאי כוכבים -->
+  <g id="starry-sky">
+    <!-- כוכבים גדולים -->
+    <circle cx="500" cy="150" r="3" class="star" />
+    <circle cx="1100" cy="100" r="4" class="star" />
+    <circle cx="1700" cy="200" r="3" class="star" />
+    <circle cx="2300" cy="120" r="5" class="star" />
+    <circle cx="2900" cy="180" r="4" class="star" />
+    <circle cx="3500" cy="140" r="3" class="star" />
+    <circle cx="4100" cy="160" r="5" class="star" />
+    <circle cx="4700" cy="110" r="4" class="star" />
+    <circle cx="5300" cy="190" r="3" class="star" />
+    <!-- כוכבים קטנים -->
+    <circle cx="600" cy="220" r="2" class="small-star" />
+    <circle cx="800" cy="130" r="2" class="small-star" />
+    <circle cx="900" cy="170" r="1.5" class="small-star" />
+    <circle cx="1250" cy="150" r="2" class="small-star" />
+    <circle cx="1500" cy="90" r="1.5" class="small-star" />
+    <circle cx="1900" cy="210" r="2" class="small-star" />
+    <circle cx="2100" cy="130" r="1.5" class="small-star" />
+    <circle cx="2500" cy="160" r="2" class="small-star" />
+    <circle cx="2700" cy="100" r="1.5" class="small-star" />
+    <circle cx="3000" cy="190" r="2" class="small-star" />
+    <circle cx="3200" cy="80" r="1.5" class="small-star" />
+    <circle cx="3600" cy="170" r="2" class="small-star" />
+    <circle cx="3800" cy="140" r="1.5" class="small-star" />
+    <circle cx="4000" cy="200" r="2" class="small-star" />
+    <circle cx="4400" cy="110" r="1.5" class="small-star" />
+    <circle cx="4600" cy="180" r="2" class="small-star" />
+    <circle cx="5000" cy="130" r="1.5" class="small-star" />
+    <circle cx="5200" cy="160" r="2" class="small-star" />
+    <circle cx="5400" cy="90" r="1.5" class="small-star" />
+    <circle cx="5800" cy="210" r="2" class="small-star" />
+  </g>
+
+  <!-- סצנת המדבר -->
+  <g id="desert-scene" transform="translate(0,0)">
+    <!-- מדבר -->
+    <rect x="0" y="500" width="600" height="500" fill="#edc9af" />
+    <!-- דיונות -->
+    <path d="M0 600 Q150 500 300 600 T600 600 V1000 H0 Z" fill="#e0a96d" opacity="0.5" />
+    <!-- שמש שוקעת -->
+    <circle cx="600" cy="500" r="80" fill="#ff4500" opacity="0.7" />
+    <!-- מטוס מקולקל -->
+    <g id="broken-plane" transform="translate(250, 550) scale(1.5)">
+      <!-- גוף המטוס -->
+      <path d="M0 0 L100 0 L90 30 L10 30 Z" fill="#c0c0c0" stroke="black" />
+      <!-- כנף שמאל שבורה -->
+      <path d="M20 15 L0 50 L20 50 L40 15 Z" fill="#c0c0c0" stroke="black" />
+      <line x1="0" y1="50" x2="20" y2="50" stroke="red" stroke-width="2" />
+      <!-- כנף ימין שבורה -->
+      <path d="M80 15 L100 50 L80 50 L60 15 Z" fill="#c0c0c0" stroke="black" />
+      <line x1="80" y1="50" x2="100" y2="50" stroke="red" stroke-width="2" />
+      <!-- זנב -->
+      <path d="M90 0 L110 -20 L90 -20 Z" fill="#c0c0c0" stroke="black" />
+      <!-- עשן -->
+      <path d="M110 -20 Q130 -50 150 -20" fill="none" stroke="gray" stroke-width="5" stroke-linecap="round" />
+    </g>
+    <!-- הנסיך הקטן -->
+    <g id="little-prince" transform="translate(270, 600) scale(1.5)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- חיוך -->
+      <path d="M-5 5 Q0 10 5 5" fill="none" stroke="black" />
+      <!-- שיער מתנופף ברוח -->
+      <path d="M-15 -10 Q0 -30 15 -10" fill="gold" stroke="gold" />
+      <!-- צעיף -->
+      <path d="M-15 10 L15 10 L30 0 L15 5 L-15 5 Z" fill="#ff6347" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- חגורה -->
+      <line x1="-10" y1="30" x2="10" y2="30" stroke="#ff6347" stroke-width="3" />
+      <!-- זרועות -->
+      <path d="M-10 20 L-25 35 L-20 40 L-5 25 Z" fill="#ffe0bd" stroke="black" />
+      <path d="M10 20 L25 35 L20 40 L5 25 Z" fill="#ffe0bd" stroke="black" />
+      <!-- רגליים -->
+      <path d="M-10 50 L-10 70 L0 70 L0 50 Z" fill="#7fffd4" stroke="black" />
+      <path d="M0 50 L0 70 L10 70 L10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- נעליים -->
+      <path d="M-10 70 L-10 75 L0 75 L0 70 Z" fill="brown" stroke="black" />
+      <path d="M0 70 L0 75 L10 75 L10 70 Z" fill="brown" stroke="black" />
+    </g>
+    <!-- הטייס -->
+    <g id="pilot" transform="translate(350, 600) scale(1.5)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- חיוך -->
+      <path d="M-5 5 Q0 10 5 5" fill="none" stroke="black" />
+      <!-- שיער -->
+      <path d="M-15 -10 Q0 -30 15 -10" fill="brown" stroke="brown" />
+      <!-- משקפי טייס -->
+      <ellipse cx="0" cy="-5" rx="12" ry="6" fill="black" opacity="0.3" />
+      <!-- צעיף -->
+      <path d="M-15 10 L15 10 L30 0 L15 5 L-15 5 Z" fill="#ff6347" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#1e90ff" stroke="black" />
+      <!-- חגורה -->
+      <line x1="-10" y1="30" x2="10" y2="30" stroke="#ff6347" stroke-width="3" />
+      <!-- זרועות -->
+      <path d="M-10 20 L-25 35 L-20 40 L-5 25 Z" fill="#ffe0bd" stroke="black" />
+      <path d="M10 20 L25 35 L20 40 L5 25 Z" fill="#ffe0bd" stroke="black" />
+      <!-- רגליים -->
+      <path d="M-10 50 L-10 70 L0 70 L0 50 Z" fill="#1e90ff" stroke="black" />
+      <path d="M0 50 L0 70 L10 70 L10 50 Z" fill="#1e90ff" stroke="black" />
+      <!-- נעליים -->
+      <path d="M-10 70 L-10 75 L0 75 L0 70 Z" fill="black" stroke="black" />
+      <path d="M0 70 L0 75 L10 75 L10 70 Z" fill="black" stroke="black" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="400" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הנסיך הקטן והטייס במדבר</text>
+    <text x="300" y="140" class="description">הרגעים המיוחדים יחד</text>
+  </g>
+
+  <!-- כוכב המלך -->
+  <g id="king-planet" transform="translate(1400,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="100" fill="#f0e68c" stroke="black" />
+    <!-- המלך על הכסא -->
+    <g id="king" transform="translate(300, 450) scale(1)">
+      <!-- כסא -->
+      <rect x="-20" y="0" width="40" height="50" fill="#8b4513" stroke="black" />
+      <!-- משענת כסא -->
+      <rect x="-30" y="-50" width="60" height="50" fill="#8b4513" stroke="black" />
+      <!-- המלך -->
+      <g id="king-figure" transform="translate(0, -70)">
+        <!-- ראש -->
+        <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+        <!-- עיניים -->
+        <circle cx="-5" cy="-2" r="2" fill="black" />
+        <circle cx="5" cy="-2" r="2" fill="black" />
+        <!-- זקן -->
+        <path d="M-10 5 Q0 15 10 5" fill="#a0522d" />
+        <!-- כתר -->
+        <path d="M-15 -15 L-10 -25 L-5 -15 L0 -25 L5 -15 L10 -25 L15 -15 Z" fill="gold" stroke="black" />
+        <!-- גוף -->
+        <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#1e90ff" stroke="black" />
+        <!-- גלימה -->
+        <path d="M-10 15 L-30 50 L30 50 L10 15 Z" fill="#ff0000" stroke="black" />
+      </g>
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של המלך</text>
+    <text x="300" y="140" class="description">המלך הפוקד על כולם</text>
+  </g>
+
+  <!-- כוכב הגאוותן -->
+  <g id="conceited-man-planet" transform="translate(2000,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="100" fill="#f0e68c" stroke="black" />
+    <!-- הגאוותן -->
+    <g id="conceited-man" transform="translate(300, 450) scale(1)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- שפם -->
+      <path d="M-5 5 Q0 0 5 5" fill="none" stroke="black" />
+      <!-- כובע גדול -->
+      <path d="M-20 -15 L0 -40 L20 -15 Z" fill="#8b4513" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#ffa500" stroke="black" />
+      <!-- גלימה -->
+      <path d="M-10 15 L-30 50 L30 50 L10 15 Z" fill="#ff69b4" stroke="black" />
+      <!-- זרועות על המותניים -->
+      <path d="M-10 25 L-25 35 L-20 40 L-5 30 Z" fill="#ffe0bd" stroke="black" />
+      <path d="M10 25 L25 35 L20 40 L5 30 Z" fill="#ffe0bd" stroke="black" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של האיש היהיר</text>
+    <text x="300" y="140" class="description">המחפש הערצה תמידית</text>
+  </g>
+
+  <!-- כוכב השיכור -->
+  <g id="drunkard-planet" transform="translate(2600,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="100" fill="#f0e68c" stroke="black" />
+    <!-- השיכור -->
+    <g id="drunkard" transform="translate(300, 450) scale(1)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- הבעה מבולבלת -->
+      <path d="M-5 5 Q0 0 5 5" fill="none" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#708090" stroke="black" />
+      <!-- בקבוק ביד -->
+      <path d="M10 30 L20 20 L25 25 L15 35 Z" fill="#deb887" stroke="black" />
+      <!-- זרוע -->
+      <path d="M10 25 L15 30 L10 35 L5 30 Z" fill="#ffe0bd" stroke="black" />
+      <!-- בקבוקים על הכוכב -->
+      <ellipse cx="-20" cy="60" rx="5" ry="10" fill="#deb887" stroke="black" />
+      <ellipse cx="0" cy="65" rx="5" ry="10" fill="#deb887" stroke="black" />
+      <ellipse cx="20" cy="60" rx="5" ry="10" fill="#deb887" stroke="black" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של השיכור</text>
+    <text x="300" y="140" class="description">השיכור המתבייש בשתייה</text>
+  </g>
+
+  <!-- כוכב איש העסקים -->
+  <g id="businessman-planet" transform="translate(3200,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="100" fill="#f0e68c" stroke="black" />
+    <!-- איש העסקים -->
+    <g id="businessman" transform="translate(300, 450) scale(1)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים עם משקפיים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <rect x="-8" y="-5" width="16" height="6" fill="none" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#000080" stroke="black" />
+      <!-- עניבה -->
+      <path d="M0 15 L-5 30 L5 30 Z" fill="red" />
+      <!-- תיק מסמכים -->
+      <rect x="-25" y="35" width="15" height="10" fill="#8b4513" stroke="black" />
+      <!-- יד מחזיקה בתיק -->
+      <path d="M-10 25 L-15 35 L-10 40 L-5 30 Z" fill="#ffe0bd" stroke="black" />
+    </g>
+    <!-- כוכבים סביב הכוכב -->
+    <circle cx="200" cy="400" r="5" class="star" />
+    <circle cx="400" cy="400" r="5" class="star" />
+    <circle cx="300" cy="350" r="5" class="star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של איש העסקים</text>
+    <text x="300" y="140" class="description">העסוק בספירת הכוכבים ורכושו</text>
+  </g>
+
+  <!-- כוכב מדליק הפנסים -->
+  <g id="lamplighter-planet" transform="translate(3800,0)">
+    <!-- כוכב קטן יותר -->
+    <circle cx="300" cy="500" r="70" fill="#f0e68c" stroke="black" />
+    <!-- פנס רחוב -->
+    <g id="lamp-post" transform="translate(300, 430)">
+      <!-- עמוד -->
+      <rect x="-5" y="0" width="10" height="70" fill="#696969" />
+      <!-- מנורה -->
+      <path d="M-15 0 L0 -30 L15 0 Z" fill="#ffd700" stroke="black" />
+      <!-- אור -->
+      <circle cx="0" cy="-15" r="20" fill="yellow" opacity="0.3" />
+    </g>
+    <!-- מדליק הפנסים -->
+    <g id="lamplighter" transform="translate(280, 450) scale(1)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="10" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-3" cy="-1" r="1.5" fill="black" />
+      <circle cx="3" cy="-1" r="1.5" fill="black" />
+      <!-- גוף -->
+      <path d="M-5 10 L5 10 L5 30 L-5 30 Z" fill="#008080" stroke="black" />
+      <!-- כובע -->
+      <path d="M-8 -10 L0 -20 L8 -10 Z" fill="#8b4513" stroke="black" />
+      <!-- יד עם גפרור -->
+      <path d="M5 15 L15 10 L17 12 L7 17 Z" fill="#ffe0bd" stroke="black" />
+      <!-- להבת גפרור -->
+      <circle cx="17" cy="10" r="3" fill="orange" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של מדליק הפנסים</text>
+    <text x="300" y="140" class="description">המדליק ומכבה את הפנס</text>
+  </g>
+
+  <!-- כוכב הגאוגרף -->
+  <g id="geographer-planet" transform="translate(4400,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="100" fill="#f0e68c" stroke="black" />
+    <!-- הגאוגרף -->
+    <g id="geographer" transform="translate(300, 450) scale(1)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים עם משקפיים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <rect x="-8" y="-5" width="16" height="6" fill="none" stroke="black" />
+      <!-- שפם -->
+      <path d="M-5 5 Q0 10 5 5" fill="none" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#2e8b57" stroke="black" />
+      <!-- ספר ביד -->
+      <rect x="-25" y="25" width="20" height="15" fill="#deb887" stroke="black" />
+      <!-- יד מחזיקה בספר -->
+      <path d="M-10 25 L-15 35 L-10 40 L-5 30 Z" fill="#ffe0bd" stroke="black" />
+    </g>
+    <!-- כדורגל של כדור הארץ -->
+    <circle cx="350" cy="400" r="30" fill="#1e90ff" stroke="black" />
+    <path d="M350 370 A30 30 0 0 1 350 430" fill="none" stroke="green" stroke-width="2" />
+    <path d="M320 400 A30 30 0 0 1 380 400" fill="none" stroke="green" stroke-width="2" />
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של הגאוגרף</text>
+    <text x="300" y="140" class="description">הנסיך הקטן פוגש את הגאוגרף</text>
+  </g>
+
+  <!-- הגעה לכדור הארץ -->
+  <g id="earth-arrival" transform="translate(700,0)">
+    <!-- רקע יער -->
+    <rect x="0" y="500" width="600" height="500" fill="#228B22" />
+    <!-- עצים -->
+    <g id="trees" transform="translate(0, 500)">
+      <g transform="translate(100, 0)">
+        <rect x="-10" y="0" width="20" height="50" fill="#8B4513" />
+        <circle cx="0" cy="-30" r="40" fill="#006400" />
+      </g>
+      <g transform="translate(200, 0)">
+        <rect x="-10" y="0" width="20" height="60" fill="#8B4513" />
+        <circle cx="0" cy="-40" r="50" fill="#006400" />
+      </g>
+      <g transform="translate(300, 0)">
+        <rect x="-10" y="0" width="20" height="55" fill="#8B4513" />
+        <circle cx="0" cy="-35" r="45" fill="#006400" />
+      </g>
+      <g transform="translate(400, 0)">
+        <rect x="-10" y="0" width="20" height="50" fill="#8B4513" />
+        <circle cx="0" cy="-30" r="40" fill="#006400" />
+      </g>
+      <g transform="translate(500, 0)">
+        <rect x="-10" y="0" width="20" height="65" fill="#8B4513" />
+        <circle cx="0" cy="-45" r="55" fill="#006400" />
+      </g>
+    </g>
+    <!-- הנסיך הקטן -->
+    <g id="little-prince-earth" transform="translate(300, 430) scale(1.5)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- חיוך -->
+      <path d="M-5 5 Q0 10 5 5" fill="none" stroke="black" />
+      <!-- שיער מתנופף ברוח -->
+      <path d="M-15 -10 Q0 -30 15 -10" fill="gold" stroke="gold" />
+      <!-- צעיף -->
+      <path d="M-15 10 L15 10 L30 0 L15 5 L-15 5 Z" fill="#ff6347" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- חגורה -->
+      <line x1="-10" y1="30" x2="10" y2="30" stroke="#ff6347" stroke-width="3" />
+      <!-- זרועות -->
+      <path d="M-10 20 L-25 35 L-20 40 L-5 25 Z" fill="#ffe0bd" stroke="black" />
+      <path d="M10 20 L25 35 L20 40 L5 25 Z" fill="#ffe0bd" stroke="black" />
+      <!-- רגליים -->
+      <path d="M-10 50 L-10 70 L0 70 L0 50 Z" fill="#7fffd4" stroke="black" />
+      <path d="M0 50 L0 70 L10 70 L10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- נעליים -->
+      <path d="M-10 70 L-10 75 L0 75 L0 70 Z" fill="brown" stroke="black" />
+      <path d="M0 70 L0 75 L10 75 L10 70 Z" fill="brown" stroke="black" />
+    </g>
+    <!-- השועל -->
+    <g id="fox" transform="translate(400, 480) scale(1.5)">
+      <!-- גוף -->
+      <path d="M-20 0 L0 -40 L20 0 Q0 10 -20 0 Z" fill="orange" stroke="black" />
+      <!-- ראש -->
+      <circle cx="0" cy="-50" r="12" fill="orange" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-4" cy="-52" r="2" fill="black" />
+      <circle cx="4" cy="-52" r="2" fill="black" />
+      <!-- אף -->
+      <circle cx="0" cy="-46" r="2" fill="black" />
+      <!-- אוזניים -->
+      <path d="M-8 -60 L-4 -70 L0 -60 Z" fill="orange" stroke="black" />
+      <path d="M8 -60 L4 -70 L0 -60 Z" fill="orange" stroke="black" />
+      <!-- זנב -->
+      <path d="M20 0 Q40 20 10 30" fill="orange" stroke="black" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="500" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הנסיך הקטן בכדור הארץ</text>
+    <text x="300" y="140" class="description">הפגישה עם השועל</text>
+  </g>
+
+  <!-- כוכב של הנסיך הקטן -->
+  <g id="prince-planet" transform="translate(5200,0)">
+    <!-- כוכב -->
+    <circle cx="300" cy="500" r="200" fill="#f0e68c" stroke="black" />
+    <!-- רקע כוכבים -->
+    <g id="planet-stars">
+      <circle cx="200" cy="300" r="3" class="star" />
+      <circle cx="400" cy="350" r="2" class="small-star" />
+      <circle cx="300" cy="200" r="4" class="star" />
+    </g>
+    <!-- הרי געש -->
+    <path d="M250 600 L270 450 L290 600 Z" fill="#8b4513" stroke="black" />
+    <path d="M300 600 L320 450 L340 600 Z" fill="#8b4513" stroke="black" />
+    <path d="M350 600 L370 450 L390 600 Z" fill="#8b4513" stroke="black" />
+    <!-- עשן מהרי געש -->
+    <path d="M270 450 Q280 420 290 450" fill="none" stroke="gray" stroke-width="3" />
+    <path d="M320 450 Q330 420 340 450" fill="none" stroke="gray" stroke-width="3" />
+    <!-- ורד -->
+    <g id="rose" transform="translate(300, 400)">
+      <path d="M0 0 C-5 -10 5 -10 0 0 Z" fill="red" />
+      <!-- גבעול -->
+      <line x1="0" y1="0" x2="0" y2="50" stroke="green" />
+      <!-- עלים -->
+      <path d="M0 20 L-10 30 L0 25 L10 30 Z" fill="green" />
+      <!-- עלה נוסף -->
+      <path d="M0 35 L-10 45 L0 40 L10 45 Z" fill="green" />
+    </g>
+    <!-- כיפה זכוכית -->
+    <ellipse cx="300" cy="400" rx="20" ry="30" fill="none" stroke="black" stroke-dasharray="5,5" />
+    <!-- הנסיך הקטן -->
+    <g id="little-prince-home" transform="translate(300, 330) scale(1.5)">
+      <!-- ראש -->
+      <circle cx="0" cy="0" r="15" fill="#ffe0bd" stroke="black" />
+      <!-- עיניים -->
+      <circle cx="-5" cy="-2" r="2" fill="black" />
+      <circle cx="5" cy="-2" r="2" fill="black" />
+      <!-- חיוך -->
+      <path d="M-5 5 Q0 10 5 5" fill="none" stroke="black" />
+      <!-- שיער מתנופף ברוח -->
+      <path d="M-15 -10 Q0 -30 15 -10" fill="gold" stroke="gold" />
+      <!-- צעיף -->
+      <path d="M-15 10 L15 10 L30 0 L15 5 L-15 5 Z" fill="#ff6347" stroke="black" />
+      <!-- גוף -->
+      <path d="M-10 15 L10 15 L10 50 L-10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- חגורה -->
+      <line x1="-10" y1="30" x2="10" y2="30" stroke="#ff6347" stroke-width="3" />
+      <!-- זרועות -->
+      <path d="M-10 20 L-25 35 L-20 40 L-5 25 Z" fill="#ffe0bd" stroke="black" />
+      <path d="M10 20 L25 35 L20 40 L5 25 Z" fill="#ffe0bd" stroke="black" />
+      <!-- רגליים -->
+      <path d="M-10 50 L-10 70 L0 70 L0 50 Z" fill="#7fffd4" stroke="black" />
+      <path d="M0 50 L0 70 L10 70 L10 50 Z" fill="#7fffd4" stroke="black" />
+      <!-- נעליים -->
+      <path d="M-10 70 L-10 75 L0 75 L0 70 Z" fill="brown" stroke="black" />
+      <path d="M0 70 L0 75 L10 75 L10 70 Z" fill="brown" stroke="black" />
+    </g>
+    <!-- כבשה בקופסה -->
+    <g id="sheep-in-box" transform="translate(260, 420)">
+      <rect x="0" y="0" width="80" height="40" fill="#deb887" stroke="black" />
+      <!-- חורים בקופסה -->
+      <circle cx="20" cy="20" r="5" fill="black" />
+      <circle cx="40" cy="20" r="5" fill="black" />
+      <circle cx="60" cy="20" r="5" fill="black" />
+    </g>
+    <!-- כוכבים בשמיים -->
+    <circle cx="200" cy="300" r="3" class="star" />
+    <circle cx="400" cy="350" r="2" class="small-star" />
+    <!-- כותרת ותיאור -->
+    <text x="300" y="100" class="title">הכוכב של הנסיך הקטן</text>
+    <text x="300" y="140" class="description">הנסיך הקטן עם הוורד והכבשה</text>
+  </g>
+</svg>
