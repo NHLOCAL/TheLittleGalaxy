@@ -165,7 +165,7 @@ function createPlanets() {
             ],
         },
         {
-            size: 110,
+            size: 160,
             name: 'איש העסקים',
             spriteName: 'planet',
             characterSpriteName: 'businessman',
@@ -190,7 +190,7 @@ function createPlanets() {
             ],
         },
         {
-            size: 200,
+            size: 140,
             name: 'הגאוגרף',
             spriteName: 'planet',
             characterSpriteName: 'geographer',
@@ -499,7 +499,7 @@ function draw() {
 
         // ציור הדמות על הכוכב
         if (planet.characterSprite) {
-            ctx.drawImage(planet.characterSprite, x - 40, y - planet.size / 2 - 80, 80, 80);
+            ctx.drawImage(planet.characterSprite, x - 40, y - planet.size / 2 - 110, 110, 110);
         }
 
         // ציור הכבשה בכוכב הבית
