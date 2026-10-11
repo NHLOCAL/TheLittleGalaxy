@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>המסע של הנסיך הקטן בין הכוכבים</title>
-    <link rel="stylesheet" href="code/styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/icon.png">
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="theme-color" content="#080d22"><meta name="description" content="מסע תלת־ממדי קסום עם הנסיך הקטן בין כוכבים, מפגשים והדרך הביתה.">
+ <title>הגלקסיה הקטנה — מסע בין הכוכבים</title><link rel="stylesheet" href="code/styles.css"><link rel="icon" href="assets/icon.png">
 </head>
-<body>
-    <div id="info">
-        <h1>המסע של הנסיך הקטן בין הכוכבים</h1>
-        <p>השתמש במקשי החצים כדי לנוע ובמקש הרווח כדי ליצור אינטראקציה</p>
-    </div>
-    <canvas id="canvas"></canvas>
-    <div id="dialogueBox">
-        <div id="characterName"></div>
-        <div id="dialogueText"></div>
-        <button id="nextButton">הבא</button>
-    </div>
-    <div id="miniMap">
-        <canvas id="miniMapCanvas"></canvas>
-    </div>
-    <script src="code/game.js"></script>
+<body data-phase="loading">
+ <div id="sky" aria-hidden="true"></div><canvas id="world" aria-label="עולם המשחק התלת־ממדי"></canvas><div class="vignette" aria-hidden="true"></div>
+ <header class="header">
+  <a class="brand" href="./" aria-label="הגלקסיה הקטנה — התחלה"><svg class="brand-mark" viewBox="0 0 65 35" aria-hidden="true"><ellipse cx="32" cy="19" rx="29" ry="7" transform="rotate(-16 32 19)"/><circle cx="35" cy="15" r="8"/><path d="m10 5 1.5 3 3 .6-2.2 2.3.3 3.2-2.6-1.5-2.8 1.3.6-3.1-2-2.5 3-.4Z"/></svg><span>הגלקסיה הקטנה</span></a>
+  <nav class="utilities" aria-label="הגדרות המשחק"><button id="mode-button" class="mode-button" hidden>חקירה חופשית <span class="mode-dot"></span></button><button id="sound-button" class="icon-button" aria-label="הפעלת צליל" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 4 0 5-4v14l-5-4H4Z"/><path class="sound-waves" d="M17 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></svg></button><button id="settings-button" class="icon-button" aria-label="הגדרות" aria-expanded="false" aria-controls="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 6 0 1 3 3 1 1 3-2 2 0 3-3 1-1 3H9l-1-3-3-1v-3l-2-2 1-3 3-1Z"/><circle cx="12" cy="12" r="3"/></svg></button></nav>
+ </header>
+ <div id="settings" class="settings-panel" hidden><h2>בקצב שלך</h2><label>איכות התצוגה<select id="quality"><option value="high">גבוהה</option><option value="low">קלה למכשיר</option></select></label><label class="check-label"><input id="reduced-motion" type="checkbox">תנועה מופחתת</label><button id="reset-progress" class="text-button">איפוס המסע הסיפורי</button></div>
+ <main>
+  <section id="loading" class="loading"><span class="loading-orbit"></span><p>עוד רגע, הכוכבים מתעוררים…</p></section>
+  <section id="opening" class="opening" hidden><div class="title-rule" aria-hidden="true"></div><h1>כל כוכב הוא סיפור.<br><em>כל מפגש הוא עולם.</em></h1><p>מסע קטן בגלקסיה גדולה.<br>לטייל, להכיר, ולגלות את מה שרואים רק בלב.</p><div class="start-actions"><button id="start-story" class="primary">לצאת למסע <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7M7 12h14"/></svg></button><button id="start-free" class="secondary">לטייל בחופשיות</button></div><small>אפשר לטייל בין הכוכבים עם החיצים, בלי חוקים ובלי למהר.</small></section>
+  <section id="hud" hidden>
+   <div class="journey-caption"><span id="mode-caption">המסע שלך</span><span id="progress-caption">0 מתוך 9 מפגשים</span></div><div id="planet-label" class="planet-label"><span id="planet-subtitle"></span></div>
+   <div class="travel-controls"><button id="interact" class="interaction"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 1-8 8H5l-3 3v-9a9 9 0 0 1 18-2Z"/></svg><span id="interact-label">לדבר עם הוורד</span><kbd>רווח</kbd></button><div class="planet-navigation" dir="ltr"><button id="previous-planet" aria-label="הכוכב הקודם"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><div dir="rtl"><strong id="planet-name">כוכב הבית</strong><span id="planet-index">01 / 10</span></div><button id="next-planet" aria-label="הכוכב הבא"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div></div>
+   <aside class="journey-map" aria-label="מפת הכוכבים"><div id="planet-map" dir="ltr"></div><p id="map-caption">עשרה כוכבים. אינסוף שאלות.</p></aside><div class="keyboard-help"><div class="key-cluster" dir="ltr"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></div><span id="keyboard-hint">לתנועה במרחב</span></div>
+   <div id="touch-pad" class="touch-pad" aria-label="בקר תנועה במגע"><button data-direction="up" aria-label="תנועה קדימה"><svg viewBox="0 0 24 24"><path d="m5 15 7-7 7 7"/></svg></button><button data-direction="left" aria-label="תנועה שמאלה"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button><button data-direction="down" aria-label="תנועה אחורה"><svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></svg></button><button data-direction="right" aria-label="תנועה ימינה"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div>
+  </section>
+  <section id="dialogue" class="dialogue" role="dialog" aria-labelledby="speaker" hidden><button id="close-dialogue" class="dialogue-close" aria-label="סגירת שיחה"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div class="dialogue-top"><span class="dialogue-star" aria-hidden="true">✦</span><strong id="speaker"></strong><span id="line-count"></span></div><p id="dialogue-text"></p><button id="next-line" class="next-line">להמשיך <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button></section>
+  <section id="flight-caption" class="flight-caption" aria-live="polite" hidden><span class="gold-star" aria-hidden="true">✦</span><h2>בחזרה אל הוורד.</h2><p>לפעמים הדרך הביתה מתחילה בלב.</p></section>
+  <section id="ending" class="ending" hidden><span class="gold-star" aria-hidden="true">✦</span><h2>בבית, בין הכוכבים.</h2><p>הזמן שהקדשת לוורד שלך<br>הוא שעושה אותו חשוב כל כך.</p><button id="restart" class="primary">לצאת למסע חדש</button><button id="continue-free" class="text-button">להמשיך לטייל בחופשיות</button></section>
+  <section id="error" class="error-panel" role="alert" hidden><h1>הכוכבים מחכים לך</h1><p id="error-message"></p><button class="primary" onclick="location.reload()">לנסות שוב</button></section>
+ </main>
+ <div id="toast" role="status" class="toast" hidden></div><span id="announcer" class="sr-only" aria-live="polite"></span><noscript>כדי לצאת למסע, יש להפעיל JavaScript בדפדפן.</noscript>
+ <script type="module">import('./code/game.js').catch(() => { document.querySelector('#loading').hidden=true;document.querySelector('#error').hidden=false;document.querySelector('#error-message').textContent='לא הצלחנו לטעון את המשחק. יש לפתוח אותו דרך שרת מקומי או אתר ולבדוק שכל קובצי המשחק זמינים.'; });</script>
 </body>
 </html>
