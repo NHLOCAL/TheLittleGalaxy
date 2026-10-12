@@ -6,10 +6,7 @@ export function createInput(actions) {
   if(editable(e))return;
   if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space'].includes(e.code))e.preventDefault();
   if(e.code==='Space'||e.code==='KeyE'){if(!e.repeat)actions.interact();return;}
-  if(actions.mode()==='free' && ['ArrowLeft','ArrowRight'].includes(e.code)) {
-   if(!e.repeat)actions.navigate(e.code==='ArrowRight'?1:-1);return;
-  }
-  if(['KeyW','KeyA','KeyS','KeyD','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))keys.add(e.code);
+  if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code))keys.add(e.code);
  }
  const up=e=>keys.delete(e.code);
  function clear(){keys.clear();touch.clear();}
@@ -23,8 +20,8 @@ export function createInput(actions) {
  }
  function direction() {
   const touched=new Set(touch.values());
-  let x=Number(keys.has('KeyD')||keys.has('ArrowRight')||touched.has('right'))-Number(keys.has('KeyA')||keys.has('ArrowLeft')||touched.has('left'));
-  let z=Number(keys.has('KeyS')||keys.has('ArrowDown')||touched.has('down'))-Number(keys.has('KeyW')||keys.has('ArrowUp')||touched.has('up'));
+  let x=Number(keys.has('ArrowRight')||touched.has('right'))-Number(keys.has('ArrowLeft')||touched.has('left'));
+  let z=Number(keys.has('ArrowDown')||touched.has('down'))-Number(keys.has('ArrowUp')||touched.has('up'));
   const length=Math.hypot(x,z);if(length>1){x/=length;z/=length;}return {x,z};
  }
  return {direction,clear,dispose(){window.removeEventListener('keydown',down);window.removeEventListener('keyup',up);window.removeEventListener('blur',clear);listeners.forEach(f=>f());}};

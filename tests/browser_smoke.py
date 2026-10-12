@@ -37,8 +37,8 @@ with sync_playwright() as p:
         return count
     page.get_by_role('button',name='הכוכב הבא',exact=True).click();arrival('המלך')
     page.wait_for_timeout(800);page.screenshot(path='/tmp/galaxy-3d-king.png')
-    page.keyboard.press('ArrowRight',delay=80);arrival('האיש הגאה')
-    page.keyboard.press('ArrowLeft',delay=80);arrival('המלך')
+    page.get_by_role('button',name='הכוכב הבא',exact=True).click();arrival('האיש הגאה')
+    page.get_by_role('button',name='הכוכב הקודם',exact=True).click();arrival('המלך')
     assert state()['completed']==[]
     for name,key in [('השיכור','drunkard'),('איש העסקים','businessman'),('מדליק הפנסים','lamplighter'),('הגאוגרף','geographer'),('השועל','fox'),('כדור הארץ','earth'),('הנחש','snake')]:
         go(name);page.wait_for_timeout(500);page.screenshot(path='/tmp/galaxy-3d-'+key+'.png')
@@ -67,9 +67,9 @@ with sync_playwright() as p:
     assert len(state()['completed'])==9
     # Held movement clears on blur; focused selects do not navigate.
     page.evaluate("async()=>{window.qaGame=await import('./code/game.js')}")
-    before=state()['position'];page.keyboard.down('KeyD');page.wait_for_function('x=>qaGame.state.position.x>x+.1',arg=before['x']);page.keyboard.up('KeyD')
+    before=state()['position'];page.keyboard.down('ArrowRight');page.wait_for_function('x=>qaGame.state.position.x>x+.1',arg=before['x']);page.keyboard.up('ArrowRight')
     assert state()['position']['x']>before['x']
-    page.keyboard.down('KeyD');page.evaluate("window.dispatchEvent(new Event('blur'))");before=state()['position'];page.wait_for_timeout(300);page.keyboard.up('KeyD')
+    page.keyboard.down('ArrowRight');page.evaluate("window.dispatchEvent(new Event('blur'))");before=state()['position'];page.wait_for_timeout(300);page.keyboard.up('ArrowRight')
     assert abs(state()['position']['x']-before['x'])<.1
     page.locator('#settings-button').click();page.locator('#quality').select_option('low');page.locator('#quality').focus();before=state()
     page.keyboard.press('ArrowRight');assert state()['phase']=='explore'
@@ -82,5 +82,5 @@ with sync_playwright() as p:
     assert state()['position']['z']<before['z']
     assert not errors, errors
     assert not failed, failed
-    print(json.dumps({'status':'passed','story_dialogue_lines':total,'checks':['real WebGL entry','free arrows and map','all ten planets','no automatic snake bite','rendered return frames','exact home landing','restart','all story conversations','ending unlock','save reload','manual motion','blur cleanup','focused select','mobile layout','touch controls'],'flight_samples':samples,'ending':ending,'errors':errors,'failed_requests':failed},ensure_ascii=False))
+    print(json.dumps({'status':'passed','story_dialogue_lines':total,'checks':['real WebGL entry','planet buttons and map','all ten planets','no automatic snake bite','rendered return frames','exact home landing','restart','all story conversations','ending unlock','save reload','manual arrow flight','blur cleanup','focused select','mobile layout','touch controls'],'flight_samples':samples,'ending':ending,'errors':errors,'failed_requests':failed},ensure_ascii=False))
     browser.close()

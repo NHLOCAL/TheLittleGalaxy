@@ -34,7 +34,7 @@ export function createUI(state,actions) {
   $('mode-button').dataset.mode=state.mode;$('mode-button').disabled=['transit','return','dialogue'].includes(phase);
   $('planet-name').textContent=p.name;$('planet-index').textContent=String(index+1).padStart(2,'0')+' / 10';$('planet-subtitle').textContent=phase==='transit'?'בדרך אל '+p.name:p.subtitle;
   $('mode-caption').textContent=state.mode==='free'?'לגלות, בלי למהר':'המסע שלך';$('progress-caption').textContent=state.mode==='free'?'כל הכוכבים פתוחים':`${state.completed.size} מתוך 9 מפגשים`;
-  $('keyboard-hint').textContent=state.mode==='free'?'WASD לתנועה · חיצים לטיול':'חיצים או WASD לתנועה';
+  $('keyboard-hint').textContent='חיצים למעוף · רווח לשיחה';
   $('interact-label').textContent=canVisit(state,p.id)?'לדבר עם '+names[p.character]:'עוד מפגשים בדרך הביתה';$('interact').disabled=phase!=='explore';
   for(const id of ['previous-planet','next-planet'])$(id).disabled=phase!=='explore';
   for(let i=0;i<mapButtons.length;i++){
